@@ -25,7 +25,12 @@ La app necesita **HTTPS** para que funcione la cámara y el modo sin conexión. 
 - **Inicio**: lotes ordenados por fecha de retiro (vencimiento − 1 día). Rojo = retirar hoy o atrasado.
 - **Pedir precios**: lotes que vencen en 7 días o menos. Elige Precio o 2x1 por lote, genera el PDF y compártelo. Al día siguiente, marca ✅ o ❌ en "Por verificar".
 - **Días de pedir**: lunes y jueves; martes y viernes si el lunes es festivo o hay promoción (Ajustes).
-- **Ajustes → Exportar copia**: guarda una copia de tus datos de vez en cuando.
+- **Foto del producto**: al agregar (o en el Catálogo) toca 📷 Tomar foto o 🖼️ Galería. Se guarda en alta calidad (hasta 1600 px) y se puede **ampliar con zoom** tocándola (pellizco, doble toque, arrastrar); las listas usan una miniatura liviana.
+- **Fecha fin de rebaja**: al marcar ✅ en "Por verificar" aparece "Rebaja hasta". También puedes registrar o editar una rebaja desde el detalle de un lote (🏷️). Cuando llega la fecha la app avisa para quitar la etiqueta y el producto vuelve a "Pedir precios".
+- Con el extra de balanzas activo, el formulario de **Agregar** trae un campo opcional de **código de balanza** (con su categoría si es Atendida): se guarda en Balanzas vinculado al producto.
+- **Catálogo** (Ajustes → Catálogo, o el botón en Agregar): importa productos desde un **PDF** (funciona sin internet), una **imagen/foto** (necesita internet la primera vez) o un CSV/TXT. Siempre aparece una pantalla para revisar y corregir antes de guardar. Los productos del catálogo se autocompletan al agregar lotes.
+- **⚖️ Códigos de balanzas** (extra): actívalo en Ajustes → Extras. Aparece la pestaña Balanzas con dos secciones, Autoservicio y Atendida (Nombre, PLU, Proveedor, Código de balanza). La Atendida se separa en categorías (Res, Búfalo, Cerdo, Pollo, Pescado). Hay buscador global (nombre, PLU, código o proveedor, en ambas secciones), filtro por categoría y por proveedor, se puede **importar una lista** desde PDF, imagen o CSV (detecta los encabezados Res, Cerdo, Pollo…), **vincular** cada código a un producto del catálogo (nombre, PLU y proveedor se toman de allí y se actualizan solos), e **imprimir un PDF** por categoría o exportar a CSV. Los códigos QR y DataMatrix de producto (formato GS1, JSON o texto como "Lote: X Vence: 31/12/2027") rellenan código, lote y vencimiento al agregar un lote. El botón 📷 de los buscadores (Inicio, Catálogo y Balanzas) escanea el código de barras.
+- **Ajustes → Exportar copia**: guarda una copia de tus datos (incluye fotos y balanzas) de vez en cuando.
 
 ## Si actualizas la app
-Si cambias algún archivo, edita `sw.js` y sube el número de `CACHE` (por ejemplo `rotador-v2`) para que los teléfonos descarguen la versión nueva.
+Si cambias algún archivo, edita `sw.js` y sube el número de `CACHE` (por ejemplo `rotador-v13`) para que los teléfonos descarguen la versión nueva.

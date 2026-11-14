@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <title>Rotador</title>
 <meta name="theme-color" content="#0f766e">
 <meta name="description" content="Control de vencimientos y pedido de precios">
@@ -27,6 +27,8 @@
   <button data-tab="home"><span class="ico">🏠</span><span>Inicio</span><i class="badge hidden" id="bHome"></i></button>
   <button data-tab="add"><span class="ico">➕</span><span>Agregar</span></button>
   <button data-tab="pedir"><span class="ico">🏷️</span><span>Pedir precios</span><i class="badge hidden" id="bPedir"></i></button>
+  <button data-tab="reports"><span class="ico">📊</span><span>Reportes</span></button>
+  <button data-tab="scales" id="tabScales" class="hidden"><span class="ico">⚖️</span><span>Balanzas</span></button>
   <button data-tab="settings"><span class="ico">⚙️</span><span>Ajustes</span></button>
 </nav>
 
@@ -35,9 +37,23 @@
 <div id="scanner" class="scanner hidden">
   <div class="scanner-box">
     <div id="reader"></div>
-    <p class="hint">Apunta la cámara al código de barras</p>
-    <button class="btn" id="scanCancel" type="button">Cancelar</button>
+    <p class="hint" id="scanHint">Apunta la cámara al código de barras o QR</p>
+    <div class="scan-tools">
+      <button class="btn-mini hidden" id="scanTorch" type="button">🔦 Linterna</button>
+      <button class="btn-mini" id="scanEngine" type="button">🔄 Cambiar lector</button>
+      <button class="btn-mini" id="scanPhoto" type="button">📷 Foto del código</button>
+    </div>
+    <input type="file" id="scanFile" accept="image/*" capture="environment" class="hidden">
+    <div id="scanTmp" class="hidden"></div>
+    <button class="btn" id="scanCancel" type="button" style="margin-top:12px">Cancelar</button>
   </div>
+</div>
+
+<div id="viewer" class="viewer hidden" role="dialog" aria-label="Foto del producto">
+  <div class="viewer-bar"><div class="viewer-t"><b id="viewerTitle"></b><span id="viewerInfo"></span></div><button id="viewerClose" type="button" aria-label="Cerrar">✕</button></div>
+  <div id="viewerStage" class="viewer-stage"><img id="viewerImg" alt="" draggable="false"></div>
+  <div class="viewer-tools"><button id="vZoomOut" type="button" aria-label="Alejar">−</button><button id="vReset" type="button">100%</button><button id="vZoomIn" type="button" aria-label="Acercar">+</button></div>
+  <div class="viewer-hint">Pellizca o toca dos veces para ampliar · arrastra para mover</div>
 </div>
 
 <div id="toast" class="toast hidden" role="status"></div>
@@ -45,6 +61,7 @@
 <script src="lib/html5-qrcode.min.js"></script>
 <script src="lib/jspdf.umd.min.js"></script>
 <script src="dates.js"></script>
+<script src="catalog.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
